@@ -2,26 +2,6 @@ import datetime
 import csv 
 import pandas as pd
 
-class Expense:
-
-  def __init__(self, date, category, description, amount):
-    self.date = datetime.datetime.strptime(date, "%d-%m-%Y")
-    self.category = category
-    self.description = description
-    self.amount = amount
-
-  def to_dict(self):
-    return {
-    "date": self.date,
-    "category": self.category,
-    "description": self.description,
-    "amount": self.amount
-    }
-
-
-e1 = Expense('05-06-2025', 'Food', 'Lunch at restaurant', 25.50)
-#print(e1.to_dict())
-
 
 def store_expense(expense):
     csv_file = 'expenses.csv'
@@ -33,7 +13,6 @@ def store_expense(expense):
             writer.writeheader()  # Write header only if file is empty
         writer.writerow(data)        
 
-store_expense(e1)
 
 def load_expense(inputfile):
     expenses = []
@@ -46,9 +25,3 @@ def load_expense(inputfile):
             row['amount'] = float(row['amount'])
             expenses.append(row) # add each row to the list 
     return pd.DataFrame(expenses)
-
-
-
-df = load_expense('expenses.csv')
-print("Total expenses:", df['amount'].sum())
-
