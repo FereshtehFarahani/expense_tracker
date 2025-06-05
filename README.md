@@ -1,6 +1,6 @@
 # Expense_tracker 
 
-
+<pre lang="markdown">
 expense_tracker/
 │
 ├── expense.py        # The Expense class
@@ -8,5 +8,5 @@ expense_tracker/
 ├── report.py        # summarize and visualize
 ├── main.py          # main script that runs the app
 └── expenses.csv      # expense data
-
+</pre>
 
