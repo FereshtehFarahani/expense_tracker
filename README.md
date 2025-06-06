@@ -18,7 +18,7 @@ expense_tracker/
 
 
 To do: 
-<pre lang="markdown">>
+<pre lang="markdown">
 What do you want to do?
 1. Add new expense
 2. View total & category summary
