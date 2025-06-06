@@ -14,6 +14,16 @@ def summarize_monthly_yearly(df):
     return df.groupby(['year','month'])['amount'].sum().reset_index()
 
 def plot_expenses(df):
-    df.plot(x='date', y='amount',kind = 'hist', title='Expenses Over Time')
-    df.plot(x='category', y='amount', kind = 'hist', title='Expenses Over Time')
-    return plt.show()
+    # Plot expenses over time
+    df = df.sort_values(by='date')
+    df.plot(x='date', y='amount', kind='line', title='Expenses Over Time')
+    plt.tight_layout()
+    plt.savefig("expenses_over_time.png")  # Save plot to file
+    plt.show()
+
+    # Plot total expenses by category
+    df.groupby('category')['amount'].sum().plot(kind='bar', title='Expenses by Category')
+    plt.tight_layout()
+    plt.savefig("expenses_by_category.png")
+    plt.show()
+  
