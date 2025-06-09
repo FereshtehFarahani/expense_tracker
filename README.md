@@ -25,3 +25,8 @@ What do you want to do?
 3. Show expense plot
 4. Exit
 </pre>
+
+Run tests 
+<pre lang="markdown">
+python -m unittest discover -s tests
+</pre>

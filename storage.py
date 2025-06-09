@@ -3,11 +3,10 @@ import csv
 import pandas as pd
 
 
-def store_expense(expense):
-    csv_file = 'expenses.csv'
+def store_expense(expense, filename='expenses.csv'):
     data = expense.to_dict()
     data['date'] = data['date'].strftime("%Y-%m-%d")  # convert datetime to string
-    with open(csv_file, mode='a', newline='') as file:
+    with open(filename, mode='a', newline='') as file:
         writer = csv.DictWriter(file, fieldnames=data.keys())
         if file.tell() == 0:  # Check if file is empty
             writer.writeheader()  # Write header only if file is empty
