@@ -12,17 +12,15 @@ expense_tracker/
 </pre>
 
 ## plots
+![expenses_by_category](expenses_by_category.png)
+![expenses_over_time](expenses_over_time.png)
 
-![expenses_by_category](plots/expenses_by_category.png)
-![expenses_over_time](plots/expenses_over_time.png)
 
-
-To do: 
+CLI menu: 
 <pre lang="markdown">>
 What do you want to do?
 1. Add new expense
-2. View total & category summary
-3. View monthly/yearly summary
-4. Show expense plot
-5. Exit
+2. View monthly/yearly/category summary
+3. Show expense plot
+4. Exit
 </pre>
