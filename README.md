@@ -16,7 +16,7 @@ expense_tracker/
 ![expenses_over_time](expenses_over_time.png)
 
 
-CLI menu: 
+To do: 
 <pre lang="markdown">>
 What do you want to do?
 1. Add new expense
