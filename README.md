@@ -3,12 +3,13 @@
 ## app structure 
 <pre lang="markdown">
 expense_tracker/
-│
-├── expense.py        # The Expense class
-├── storage.py        # store_expense() and load_expense()
-├── report.py        # summarize and visualize
-├── main.py          # main script that runs the app
-└── expenses.csv      # expense data
+├── expense.py
+├── storage.py
+├── report.py
+├── main.py
+├── expenses.csv
+├── README.md
+└── requirements.txt  
 </pre>
 
 ## plots
@@ -16,8 +17,8 @@ expense_tracker/
 ![expenses_over_time](expenses_over_time.png)
 
 
-To do: 
-<pre lang="markdown">>
+CLI Menu: 
+<pre lang="markdown">
 What do you want to do?
 1. Add new expense
 2. View monthly/yearly/category summary
