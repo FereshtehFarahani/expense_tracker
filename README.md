@@ -9,7 +9,11 @@ expense_tracker/
 ├── main.py
 ├── expenses.csv
 ├── README.md
-└── requirements.txt  
+└── requirements.txt
+├── tests/
+│   └── test_expense.py
+│   └── test_storage.py
+│   └── test_report.py
 </pre>
 
 ## plots
