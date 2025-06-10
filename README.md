@@ -17,8 +17,7 @@ expense_tracker/
 </pre>
 
 ## plots
-![expenses_by_category](expenses_by_category.png)
-![expenses_over_time](expenses_over_time.png)
+![expenses_by_category_overtime](expense_summary.png)
 
 
 CLI Menu: 
