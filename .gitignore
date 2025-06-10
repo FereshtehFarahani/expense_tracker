@@ -22,7 +22,6 @@ venv/
 .DS_Store
 
 # Graphs or plots
-*.png
 *.jpg
 
 # Pytest cache
