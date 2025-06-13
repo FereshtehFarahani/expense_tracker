@@ -1,22 +1,57 @@
 from expense import Expense
 from storage import store_expense, load_expense
 from report import summarize_by_category,summarize_monthly_yearly, plot_expenses
+import datetime
+
+
+VALID_CATEGORIES = {"Food", "Transport", "Entertainment", "Utilities", "Other"}  
 
 
 def add_expense():
     answer = input("Do you want to enter new expense? (yes/no)").strip().lower() #normalizing the answer
     if answer == 'yes':
         try:
-            values = input("Values: date,category,description,amount ").split()
-            if len(values) != 4:
-                raise ValueError("Expected 4 values")
-            date,category,description,amount = values
-            amount = float(amount)
-            expense = Expense(date, category, description, amount)
+            date_str, category, description, amount_str = input(
+                "Values: date (YYYY-MM-DD), category, description, amount: "
+            ).split()
+
+            # Validate date
+            try:
+                date = datetime.datetime.strptime(date_str, "%Y-%m-%d").date()
+            except ValueError:
+                print("❌ Invalid date format. Please use YYYY-MM-DD.")
+                return
+
+            # Validate amount
+            try:
+                amount = float(amount_str)
+                if amount <= 0:
+                    print("❌ Amount must be a positive number.")
+                    return
+            except ValueError:
+                print("❌ Amount must be a valid number.")
+                return
+
+            # Validate category (case-insensitive match)
+            matched_category = None
+            for valid in VALID_CATEGORIES:
+                if category.lower() == valid.lower():
+                    matched_category = valid  # use the original formatting
+                    break
+            if matched_category is None:
+                print(f"❌ Invalid category. Choose from: {', '.join(VALID_CATEGORIES)}")
+                return
+            category = matched_category
+
+            # All good — store it
+            expense = Expense(date_str, category, description, amount_str)
             store_expense(expense)
             print("✅ Expense saved!")
+
         except ValueError as e:
-                print("❌ Invalid input. Example: 01-06-2025 Food Lunch 12.5")
+                print("❌ Please enter 4 values separated by spaces. Example: 2025-06-01 Food Lunch 12.5")
+    else: 
+        print("Exiting app.")
 
 
 def view_summary():
